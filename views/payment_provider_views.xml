@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="view_payment_provider_bkash_form" model="ir.ui.view">
+            <field name="name">payment.provider.bkash.form</field>
+            <field name="model">payment.provider</field>
+            <field name="inherit_id" ref="payment.payment_provider_form"/>
+            <field name="arch" type="xml">
+                <group name="provider_credentials" position='inside'>
+                    <group invisible="code != 'bkash'">
+                        <field name="bkash_base_url"
+                               required="code == 'paypal' and state != 'disabled'"/>
+                        <field name="bkash_api_key"  password="True"
+                               required="code == 'paypal' and state != 'disabled'"/>
+                        <field name="bkash_api_secret"  password="True"
+                               required="code == 'paypal' and state != 'disabled'"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+    </data>
+</odoo>
